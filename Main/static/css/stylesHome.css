@@ -1,0 +1,26 @@
+/* Body */
+
+@font-face {
+    font-family: Handjet;
+    src: url('fonts/Handjet/Handjet-ExtraBold.ttf');
+}
+
+body {
+    overflow-x: hidden;
+    background-color: rgba(0, 153, 158, 0.205);
+
+}
+
+
+
+/* Main */
+
+/* First Section */
+
+.sec1 img {
+    margin-top: 50px;
+    width: 100vw;
+}
+
+
+/* End of Section */

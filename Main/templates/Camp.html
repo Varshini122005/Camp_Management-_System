@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camp</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="static/css/stylesCamp.css" rel="stylesheet" type="text/css">
+    <link href="static/css/stylesNavbar.css" rel="stylesheet" type="text/css"> 
+</head>
+<body>
+    <!-- Header Section -->
+
+    <header>
+        <nav class="navbar navbar-expand">
+            <!-- <span> 
+            <a href="./" style="padding-left: 25px;" class="navbar-brand col">Brand</a>
+            </span> -->
+            <ul class="navbar-nav row">
+                <li class="nav-item col"><a class="nav-link" href="./">Home</a></li>
+                <li class="nav-item col"><a class="nav-link" href="Camp">Camp</a></li>
+                <li class="nav-item col"><a class="nav-link" href="Person">Person</a></li>
+                <li class="nav-item col"><a class="nav-link" href="Requirements">Requirements</a></li>
+            </ul>
+        </nav>
+    </header>
+<!-- End Of Header Section -->
+
+<!-- Main Secion -->
+<main>
+    <section class="camp container">
+        
+        {% for i in obj %}
+        <section id="{{i.camp_name}}" class="item campContain">
+            <article>
+                <img src="media/{{i.camp_img}}" onclick="show('{{i.camp_id}}','{{i.camp_name}}')">
+            </article>
+            <article class="title" onclick="show('{{i.camp_id}}','{{i.camp_name}}')"><font>{{i.camp_name}}</font></article>
+        </section>
+        <section id="{{i.camp_id}}" class="item data1">
+            <span><button class="btn" onclick="hide('{{i.camp_id}}','{{i.camp_name}}')">X</button></span>
+        <table class="table1">
+            <tr>
+                <td></td>
+                <td>Camp Info</td>
+            </tr>
+            <tr>
+                <td>Camp ID</td>
+                <td>:</td>
+                <td>{{i.camp_id}}</td>
+            </tr>
+            <tr>
+                <td>Camp Address</td>
+                <td>:</td>
+                <td>{{i.camp_add}}</td>
+
+            </tr>
+            <tr>
+                <td>Camp District</td>
+                <td>:</td>
+                <td>{{i.camp_district}}</td>
+            </tr>
+              
+            <tr>
+                <td>Camp State </td>
+                <td>:</td>
+                <td>{{i.camp_state}}</td>
+            </tr>
+            <tr>
+                <td>Total Capacity </td>
+                <td>:</td>
+                <td>{{i.total_capacity}}</td>
+            </tr>
+            <tr>
+                <td>Current Capacity </td>
+                <td>:</td>
+                <td>{{i.curr_capacity}}</td>
+            </tr>
+            <tr><td></td>
+                <td>Rations</td>
+            </tr>
+            <tr>
+                <td>Towels </td>
+                <td>:</td>
+                <td>{{i.rat_towel}}</td>
+            </tr>
+            <tr>
+                <td>Soap </td>
+                <td>:</td>
+                <td>{{i.rat_soap}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Manager Details</td>
+            </tr>
+            <tr>
+                <td>Manager</td>
+                <td>:</td>
+                <td>{{i.camp_man}}</td>
+            </tr>
+            <tr>
+                <td>Contact</td>
+                <td>:</td>
+                <td>{{i.man_contact}}</td>
+            </tr>
+        </table>
+        
+        <table class="table2">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>gender</th>
+            </tr>
+            {% for j in data_per %}
+            {% if j.camp_id == i.camp_id %}
+            <tr>
+                <td>{{j.name}}</td>
+                <td>{{j.age}}</td>
+                <td>{{j.gender}}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+        </section>
+        {% endfor %}
+    </section>
+</main>
+
+<footer>
+    <script src="static/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/camp.js"></script>
+</footer>
+</body>
+</html>
